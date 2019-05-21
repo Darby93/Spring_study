@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!--  
+		ArticleDao articledao = new OracleArticleDao();
+		ArticleService service = new ArticleService(articledao);
+		
+		Article article = new Article();
+	-->
+	
+	<bean id="articledao" class ="DI_06_Spring.OracleArticleDao"></bean>
+	<bean id="articledao2" class ="DI_06_Spring.MysqlArticleDao"></bean>
+	
+	<bean id="service" class= "DI_06_Spring.ArticleService">
+		<constructor-arg>
+			<ref bean="articledao2"></ref>
+		</constructor-arg>
+	</bean>
+	<bean id="article" class="DI_06_Spring.Article"/>
+</beans>

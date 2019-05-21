@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 
+	MessageBean_en messagenean_en = new MessageBean_en(); 
+	MessageBean_kr messagenean_kr = new MessageBean_kr();
+	
+	main 함수 받아주는 부분
+	MessageBean messagebean = new MessageBean_en();
+	
+	-->
+	
+	<!-- <bean id="message" class="DI_03_Spring.MessageBean_en"></bean> -->
+	
+	<bean id="message" class="DI_03_Spring.MessageBean_kr"></bean>
+	
+</beans>

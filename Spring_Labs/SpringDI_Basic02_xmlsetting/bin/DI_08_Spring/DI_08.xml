@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!--  
+		
+		JobExecute jobexecute = new JobExecute("hong", 100L);
+		case : String, String : String, int : String, long
+		
+		//생성자 주입
+		
+		ArticleDao articledao = new ArticleDao();
+		
+		jobexecute.setArticledao(articledao); //setter 주입 (참조값)
+		
+		jobexecute.setData(500); //setter 주입 (값)
+	-->
+	
+	<bean id="articledao" class="DI_08_Spring.ArticleDao"></bean>
+	
+	<bean id="jobexecute" class="DI_08_Spring.JobExecute">
+		<!-- 첫 번째 파라미터 -->
+		<constructor-arg>
+			<value>hong</value>
+		</constructor-arg>
+		
+		<!-- 두 번째 파라미터 -->
+		<constructor-arg>
+			<value type="long">100</value> <!-- 타입지정이 따로 없으면 무조건 스트링이라함 -->
+		</constructor-arg>
+		
+		<property name="articledao">
+			<ref bean="articledao"/>
+		</property>
+		
+		<property name="data">
+			<value>500</value>
+		</property>
+	</bean>
+	
+	
+	
+</beans>
