@@ -23,7 +23,7 @@ import org.springframework.context.annotation.Scope;
 public class ConfigContext {
 	
 	@Bean
-	@Scope("prototype")
+	@Scope("prototype") // singleton이 default이지만   앞에꺼를 적어주면 여러개의 객체를 생성한다  (주소값이 다른 객체가 생성됨 )
 	public User user () { // 함수 이름 = 아이디 <bean id= "user" class="DI_Annotation_05.User"/>
 		return new User();
 	}
