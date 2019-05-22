@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context 
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!--  
+		1. Calc calc = new NewCalc();
+	
+		2. Calc cal = (Calc)Proxy.newProxyInstance(calc.getClass().getClassLoader(), //실제 클래스의 메타정보
+												calc.getClass().getInterfaces(), //행위 정보 (add, sub, mul)
+												new LogPrintHandler(calc)); //보조관심 >> 실객체 주소를 넣은
+		main 에서 실행 : calMUL(100,20);
+		
+		3. LogPrintAroundAdivce bean 객체 생성
+		
+		xml 설정에 JAVA 코드  proxy 대체 bean 객체 생성
+	-->
+	
+	
+	<bean id="calc" class="AOP_Basic_03.NewCalc"></bean>
+	<bean id="logPrintAroundAdivce" class="AOP_Basic_03.LogPrintAroundAdivce">
+	
+	</bean>
+	
+	<bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<!-- 1parameter -->
+		<property name="proxyInterfaces">
+			<list>
+				<value>AOP_Basic_03.Calc</value>
+			</list>
+		</property>
+		
+		<!-- 2parameter -->
+		<property name="target" ref="calc"></property>
+		
+		<!-- 3parameter -->
+		<property name="interceptorNames">
+			<list>
+				<value>logPrintAroundAdivce</value> <!-- 보조 업무 객체 -->
+			</list>
+		</property>
+	</bean>
+	
+</beans> 
