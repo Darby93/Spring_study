@@ -48,14 +48,29 @@
 			Annotation 필요한 모든 빈 객체를 자동 등록 ..........
 			단점) 사용하지 않는 bean도 자동 등록이 되요!
 	 
-	 
+	 **@Autowired 정상 동작 하지 않는 경우
+	 1. injection 되는 타입의 bean 객체가 ioc 컨테이너 안에 없는 경우 !(exception)
+	 2. IOC컨테이너 안에 같은 타입의 bean 객체가 IOC 컨테이너 안에 있는 경우 !
+		<bean id="b" class = "DI_Annotation_01.Recorder"/>
+		<bean id="c" class = "DI_Annotation_01.Recorder"/>
+	
+	 3. IOC컨테이너 안에 같은 타입의 객체가 여러개 존재 하더라도 
+	    public void setRecorder(Recorder recorder) {}
+	        함수의 PARAMETER 이름 : recorder
+	        예외적으로 parameter 이름과 동일한 id를 가진 bean 객체가 존자한다면 !!! 뻑안나고 돌아감!
+		원칙 @Resource (by name)
+		
+		
 		
 	-->
 	
-	<!-- <context:annotation-config/> -->
-	<bean id="ap" class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+	<context:annotation-config/>
+	<!-- <bean id="ap" class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/> -->
 	<bean id="recorder" class = "DI_Annotation_01.Recorder"/>
 	<bean id="viewer" class="DI_Annotation_01.MonitorViewer"/>
+	<bean id="a" class = "DI_Annotation_01.Recorder"/>
+	<bean id="b" class = "DI_Annotation_01.Recorder"/>
+	<bean id="c" class = "DI_Annotation_01.Recorder"/>
 	
 	
 </beans>
