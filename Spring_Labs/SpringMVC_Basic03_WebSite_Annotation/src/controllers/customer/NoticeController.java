@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,8 +39,13 @@ public class NoticeController{
 	//setter 주입 (xml설정, annotation 설정 둘다 가능)
 
 	
+	//글 목록보기 
+	//public ModelAndView handleRequest(~~~~~~, Model model)
+	// model.addAttribute (view 단 페이지에 자동 forward (list 이름으로)
 	
-
+	
+	
+	
 	@RequestMapping("notice.htm")
 	public ModelAndView handleRequest(@RequestParam(value="pg", defaultValue="1") int page,
 										@RequestParam(value="f", defaultValue="TITLE") String f,
@@ -75,7 +81,7 @@ public class NoticeController{
 	
 	
 	@RequestMapping(value="noticeReg.htm", method=RequestMethod.GET)
-	public String form() {
+	public String noticeReg() {
 		System.out.println("image.jsp forward");
 		
 		return "noticeReg.jsp";
@@ -83,7 +89,7 @@ public class NoticeController{
 	
 	
 	@RequestMapping(value="noticeReg.htm", method=RequestMethod.POST)
-	public String submit(Notice notice, HttpServletRequest request) throws IOException, ClassNotFoundException, SQLException {
+	public String noticeReg(Notice notice, HttpServletRequest request) throws IOException, ClassNotFoundException, SQLException {
 
 		
 		
@@ -117,6 +123,14 @@ public class NoticeController{
 		
 		
 		return "redirect:notice.htm";
+		
+		//servlet
+		//클라이언트 페이지 재 요청 (F5, 주소 창에서 Enter)
+		//location.href
+		//response.sendredirect
+		
+		//spirng   =>  redirect:notice.htm
+		
 	}
 	
 	@RequestMapping("noticeDel.htm")
@@ -125,6 +139,63 @@ public class NoticeController{
 		noticedao.delete(seq);
 		
 		return "redirect:notice.htm";
+	}
+	
+	
+	//글 수정하기 
+	//notice = noticedao.getNotice(seq)
+	//parameter (Model 객체 사용)
+	
+	// 글 수정하기 (DB Update) : POST
+	//파일 업로드 처리 (insert 동일)
+	//처리(update) -> notice Detail페이지 리다이렉트
+	
+	@RequestMapping(value="noticeEdit.htm", method=RequestMethod.GET)
+	public String noticeEdit(String seq, Model model) throws ClassNotFoundException, SQLException {
+		
+		Notice notice = noticedao.getNotice(seq);
+		
+		model.addAttribute("notice", notice);
+		
+		return "noticeEdit.jsp";
+	}
+	
+	@RequestMapping(value="noticeEdit.htm", method=RequestMethod.POST)
+	public String noticeEdit(Notice notice, HttpServletRequest request, Model model) throws IOException, ClassNotFoundException, SQLException {
+
+		
+		
+		CommonsMultipartFile imagefile = notice.getFile();
+		
+		if(imagefile.getBytes().length != 0) {
+		
+		System.out.println("imagefile.getName() : " + imagefile.getName());
+		System.out.println("imagefile.getBytes() : " + imagefile.getBytes().length);
+		System.out.println("imagefile.getOriginalFilename() : " + imagefile.getOriginalFilename());
+		
+		notice.setFileSrc(imagefile.getName()); //DB insert 파일명 
+		
+		// 실 파일 업로드
+		String filename = imagefile.getOriginalFilename();
+		String path = request.getServletContext().getRealPath("/upload");
+		
+		String fpath = path + "\\" + filename; //C:\\temp\\a.jpg
+		
+		FileOutputStream fs = new FileOutputStream(fpath);
+		fs.write(imagefile.getBytes());
+		fs.close();
+		
+		
+		notice.setFileSrc(filename);
+		
+		
+		}
+		
+		noticedao.update(notice);
+		
+		
+		return "redirect:noticeDetail.htm?seq=" + notice.getSeq();
+
 	}
 
 }

@@ -53,7 +53,7 @@
 						<a href=""><img src="../images/menuMyPage.png" alt="마이페이지" /></a>
 					</li>
 					<li>
-						<a href="notice.jsp"><img src="../images/menuCustomer.png" alt="고객센터" /></a>
+						<a href="notice.htm"><img src="../images/menuCustomer.png" alt="고객센터" /></a>
 					</li>
 				</ul>
 			</div>
@@ -77,14 +77,14 @@
 							공지사항수정
 						</li>
 					</ul>
-					<form action="" method="post">
+					<form method="post" enctype="multipart/form-data">
 					<div id="notice-article-detail" class="article-detail margin-large" >						
 						<dl class="article-detail-row">
 							<dt class="article-detail-title">
 								제목
 							</dt>
 							<dd class="article-detail-data">
-								&nbsp;<input name="title" value="제 1회 경진대회 " />
+								&nbsp;<input name="title" value="${notice.title}" />
 							</dd>
 						</dl>	
 						<dl class="article-detail-row half-row">
@@ -113,13 +113,14 @@
 						</dl>
 
 						<div class="article-content" >
-							<textarea id="txtContent" class="txtContent" name="content"><img src="http://sstatic.naver.net/keypage/outside/info/2011031017145546407.jpg" /><br />동해물과 백두산이 마르고 닳도록
+							<textarea id="txtContent" class="txtContent" name="content">${notice.content}
 							</textarea>
 						</div>						
 					</div>
 					<p class="article-comment margin-small">
-						<a class="btn-save button" href="noticeEditProc.jsp">수정</a>
-						<a class="btn-cancel button" href="noticeDetail.jsp">취소</a>						
+						<!-- <a class="btn-save button" href="noticeEdit.htm">수정</a> -->
+						<input type="submit" value="수정" class="btn-save button"></input>
+						<a class="btn-cancel button" href="noticeDetail.htm?seq=${notice.seq}">취소</a>						
 					</p>		
 					</form>					
 				</div>				

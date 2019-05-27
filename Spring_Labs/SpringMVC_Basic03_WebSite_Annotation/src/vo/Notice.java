@@ -13,6 +13,7 @@ public class Notice {
 	private int hit;
 	private String content;
 	
+	//파일 업로드 추가
 	private CommonsMultipartFile file;
 	
 	public CommonsMultipartFile getFile() {
