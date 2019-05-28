@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+       
+<tiles-definitions>
+	<definition name="hello" template="/template/layout.jsp">
+		<put-attribute name="title" value="[layout master page]"></put-attribute>
+		<put-attribute name="header" value="/template/header.jsp"></put-attribute>
+		<put-attribute name="menu" value="/template/menu.jsp"></put-attribute>
+		<put-attribute name="body" value="/hello_body.jsp"></put-attribute>
+		<put-attribute name="footer" value="/template/footer.jsp"></put-attribute>				
+	</definition>
+	
+	<!-- 문제점  
+	1. 만약에 사이트에 page 가 100개 라면
+	   <put-attribute name="body" value="/boardlist.jsp">
+	   <put-attribute name="body" value="/boardinsert.jsp">
+	   
+	   <definition name="hello" 파일을 100개 생성 ...
+	-->
+	
+	<!--  
+		정의 파일 생성
+		하나만빼고 나머지는 다 같은데 새로만들어야되냐
+	-->
+	
+	<definition name="itworld.base" template="/template/layout.jsp">
+		<put-attribute name="title" value="[itworld]"></put-attribute>
+		<put-attribute name="header" value="/template/header.jsp"></put-attribute>
+		<put-attribute name="menu" value="/template/menu.jsp"></put-attribute>
+		<put-attribute name="body" value="/hello_body.jsp"></put-attribute>
+		<put-attribute name="footer" value="/template/footer.jsp"></put-attribute>				
+	</definition>
+	
+	<definition name="itworld.sub" extends="itworld.base">
+		<put-attribute name="title" value="[subworld]"></put-attribute>
+	</definition>
+</tiles-definitions>  
