@@ -2,11 +2,12 @@ package Team4_Assignment01;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 
 
 @Aspect
 public class LectureAop {
-	  
+	
 	@Before("execution(* Team4_Assignment01.BitCamp.LectureStart(..))")
 	public void StartBefore(){
 		System.out.println("임경균 강사 : 수업 시작 할게요!\n");

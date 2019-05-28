@@ -28,22 +28,25 @@
 				<h3 class="hidden">로그인메뉴</h3>
 				<ul id="loginmenu" class="block_hlist">
 					<li>
-						<a href="index.htm">HOME</a>
+						<a href="${pageContext.request.contextPath}/index.htm">HOME</a>
 					</li>
 					<li>
-						<a href="joinus/login.jsp">로그인</a>
+						<a href="${pageContext.request.contextPath}/joinus/login.htm">로그인</a>
 					</li>
 					<li>
-						<a href="joinus/join.htm">회원가입</a>
+						<a href="${pageContext.request.contextPath}/joinus/join.htm">회원가입</a>
 					</li>
 				</ul>
 				<h3 class="hidden">회원메뉴</h3>
 				<ul id="membermenu" class="clear">
 					<li>
-						<a href=""><img src="images/menuMyPage.png" alt="마이페이지" /></a>
+						<a href="">
+						<img src="${pageContext.request.contextPath}/images/menuMyPage.png" alt="마이페이지" />
+						</a>
 					</li>
 					<li>
-						<a href="customer/notice.htm"><img src="images/menuCustomer.png" alt="고객센터" /></a>
+						<a href="${pageContext.request.contextPath}/customer/notice.htm">
+						<img src="${pageContext.request.contextPath}/images/menuCustomer.png" alt="고객센터" /></a>
 					</li>
 				</ul>
 			</div>

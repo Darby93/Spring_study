@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        				https://www.springframework.org/schema/beans/spring-beans.xsd
+        				http://www.springframework.org/schema/context
+        				https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- 만약에 내가 DAO -->
+
+	<context:annotation-config />
+
+	<context:component-scan
+		base-package="controllers" />
+	
+	<!-- Tiles 설정하기 -->
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/Tiles.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+	
+	<!--  
+		public String form() {
+			return "index.jsp" //Tiles 적용 시점 return 이후에 조합 !!
+			결국 >>> return customer.notice;
+		}
+		
+		urlBasedViewResolver 통해서 Tiles 를 적용
+		<definition name ="*.*"
+		return customer.notice >> {1} >> {customer},  {2} >> {notice}
+	-->
+	<bean id="urlBasedViewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles2.TilesView" />
+	</bean>
+	<!-- Tiles 설정 END -->
+	
+</beans>
