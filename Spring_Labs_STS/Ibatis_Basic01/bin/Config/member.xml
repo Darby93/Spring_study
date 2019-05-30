@@ -2,6 +2,8 @@
 <!DOCTYPE sqlMap
 PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+
 <!-- ORM 객체 매핑  Framework
      input  parameter > java bean  void insert(Board board){}
      output parameter > java bean  Board select(){}

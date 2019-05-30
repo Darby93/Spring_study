@@ -33,9 +33,10 @@ public class EmpDao {
 		//pstmt.setInt(e.getEmpno())
 		//pstmt.setString(e.getEname()) ...
 		sqlMap.insert("insertEmp",e);
+
 	}
+	
 	public Emp SelectEmp(String ename) throws SQLException {
-		
 		return (Emp)sqlMap.queryForObject("selectEmp",ename);
 		
 		//Emp e = new Emp();

@@ -1,6 +1,6 @@
 package kosta.ibatis.utils;
 
-import java.io.Reader;
+import java.io.Reader; 
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;

@@ -45,6 +45,8 @@
 		 select * from guest where name like '%hong%'
 		 
 		 # [타입]에 대한 처리 : where name=#name# > name='김유신' (DB 쿼리가 실행시 'name')
+		 # [타입]에 대한 처리 : where age=#age# > age=100
+		 
 		 $ 있는 그래로 출력 : where name=$name$ > name=김유신 
 		 
 		 

@@ -21,15 +21,15 @@
 	UserDao dao = new UserDao();
 	SearchParam sp = new SearchParam();
 	//1. where ename='SMITH'
-	//sp.setEname("SMITH");
-	//sp.setDeptno(0);
+	//sp.setEname("KING");
+	//sp.setDeptno(10);
 	
 	//2. where deptno=10
     //   sp.setDeptno(10);
 	
 	//3. select * from emp
 	//   nothing
-	//  sp.setDeptno(0);  //** null 데이터 확인하자
+	//	sp.setDeptno(0);  //** null 데이터 확인하자
 	
     
 	//4. where ename='SMITH' and deptno=10  (null 아니고 0 아닌 경우)

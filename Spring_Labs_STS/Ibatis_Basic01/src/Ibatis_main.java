@@ -8,8 +8,8 @@ public class Ibatis_main {
 		
 		//insert
 		Emp e = new Emp();
-		e.setEmpno(6666);
-		e.setEname("hong");
+		e.setEmpno(7777);
+		e.setEname("jang");
 		e.setJob("Not");
 		e.setSal(10);
 		
@@ -20,6 +20,8 @@ public class Ibatis_main {
 		}catch(Exception ex) {
 			System.out.println(ex.getMessage());
 		}
+		
+		System.out.println('C'-'A');
 		
 
 	}

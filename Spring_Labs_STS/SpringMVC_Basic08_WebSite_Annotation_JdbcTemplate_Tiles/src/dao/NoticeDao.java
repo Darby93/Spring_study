@@ -23,7 +23,7 @@ public interface NoticeDao {
 	
 	//게시물 삭제
 	public int delete(String seq) throws ClassNotFoundException, SQLException;
-	
+	 
 	//게시물 수정
 	public int update(Notice notice) throws ClassNotFoundException, SQLException;
 	

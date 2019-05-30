@@ -15,6 +15,7 @@ public class UserDao {
 			//System.out.println(sp.getEname() + " / " + sp.getDeptno());
 			return client.queryForList("selectEmp",sp);
 		}
+		
 		public List<Emp> Emplist() throws ClassNotFoundException, SQLException{
 			SearchParamEmp params = new SearchParamEmp();
 			params.getEmpnoList().add(7369);

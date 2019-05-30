@@ -13,6 +13,8 @@ public class UserDao {
 	public void insert(UserDto dto) throws SQLException{
 		SqlMapClient client = IbatisUtil.getSqlMapClient();
 		client.insert("insertuser", dto); //"insertuser" Map 파일 id 값
+		
+		//IbatisUtil.getSqlMapClient().insert(args);
 	}
 	public void update(UserDto dto) throws SQLException{
 		SqlMapClient client = IbatisUtil.getSqlMapClient();
