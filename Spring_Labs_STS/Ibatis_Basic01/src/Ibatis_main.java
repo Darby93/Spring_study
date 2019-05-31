@@ -1,3 +1,5 @@
+
+
 import Ibatis.dao.EmpDao;
 import Ibatis.dto.Emp;
 
@@ -21,7 +23,6 @@ public class Ibatis_main {
 			System.out.println(ex.getMessage());
 		}
 		
-		System.out.println('C'-'A');
 		
 
 	}
