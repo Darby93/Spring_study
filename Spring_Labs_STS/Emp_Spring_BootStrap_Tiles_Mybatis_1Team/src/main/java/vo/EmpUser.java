@@ -1,20 +1,14 @@
 package vo;
 
-public class Empuser {
-//	create table empuser 
-//    (
-//        userid varchar2(20),
-//        password varchar2(20),
-//        username varchar2(20),
-//        authority number,
-//        email varchar(20)
-//    );
+public class EmpUser {
 	
 	private String userid;
 	private String password;
 	private String username;
 	private int authority;
 	private String email;
+	
+	
 	public String getUserid() {
 		return userid;
 	}
@@ -45,6 +39,8 @@ public class Empuser {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	
 	
 	
 	

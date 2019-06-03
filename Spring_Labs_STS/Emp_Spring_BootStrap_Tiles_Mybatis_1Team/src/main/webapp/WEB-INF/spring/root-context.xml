@@ -8,17 +8,20 @@
                            http://www.springframework.org/schema/context/spring-context.xsd">
 	
 	<!-- 공통 DB작업 -->
-	<bean id="driverManagerDataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName"
-			value="oracle.jdbc.driver.OracleDriver" />
-		<property name="url"
-			value="jdbc:oracle:thin:@localhost:1521:ORCL" />
-		<property name="username" value="springuser" />
-		<property name="password" value="1004" />
-	</bean>
-	<bean id="" class="org.springframework.jdbc.core.JdbcTemplate">
-		<property name="dataSource" ref="driverManagerDataSource"></property>
-	</bean>
+	<bean id="driverManagerDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+ 	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+ 	<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl" />
+ 	<property name="username" value="bituser" />
+ 	<property name="password" value="1004" />
+ </bean>
+ 
+	<bean id="sqlSessionFactoryBean"  class="org.mybatis.spring.SqlSessionFactoryBean">
+    <property name="dataSource" ref="driverManagerDataSource"></property>
+    <property name="mapperLocations" value="classpath*:mapper/*xml" />
+</bean> 
+
+<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+  <constructor-arg index="0" ref="sqlSessionFactoryBean"/>
+</bean>
 	
 </beans>

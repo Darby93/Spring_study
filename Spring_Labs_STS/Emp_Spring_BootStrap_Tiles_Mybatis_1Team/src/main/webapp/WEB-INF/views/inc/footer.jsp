@@ -10,13 +10,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
 						<div class="footer_logo">
 							<div class="logo">
-								<a href="#">
-									<div>Major</div>
-									<div>5 * Hotel</div>
-								</a>
+
 							</div>
 						</div>
-						<div class="button footer_button ml-md-auto"><a href="#">book now</a></div>
+
 					</div>
 				</div>
 			</div>

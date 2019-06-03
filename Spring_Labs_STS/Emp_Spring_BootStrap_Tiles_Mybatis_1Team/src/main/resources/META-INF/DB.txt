@@ -1,0 +1,10 @@
+create table empuser 
+    (
+        userid varchar2(20),
+        password varchar2(20),
+        username varchar2(20),
+        authority number,
+        email varchar(20)
+    );
+
+ALTER TABLE empuser MODIFY (authority DEFAULT 1);
