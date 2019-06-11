@@ -14,23 +14,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="getEmpList" resultType="kr.or.bit.dto.EmpDto">
-		SELECT EMPNO, ENAME, JOB, MGR, SAL, COMM, DEPTNO FROM EMP
+		SELECT EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO FROM EMP
 	</select>
 	
 	<update id="updateEmp">
-		UPDATE EMP
-		  SET ENAME=#{ename},
-		      JOB = #{job}, 
-		      MGR = #{mgr},
-		      SAL = #{sal},
-		      COMM = #{comm},
-		      DEPTNO = #{deptno}
-		WHERE EMPNO = #{empno}
-	</update>
+        UPDATE EMP
+          SET ENAME=#{ename},
+              JOB = #{job},
+              MGR = #{mgr},
+              HIREDATE = #{hiredate},
+              SAL = #{sal},
+              COMM = #{comm},
+              DEPTNO = #{deptno}
+        WHERE EMPNO = #{empno}
+    </update>
 	
 	<delete id="deleteEmp">
-		DELETE FROM EMP WHERE EMPNO = #{EMPNO}
-	</delete>
+        DELETE FROM EMP WHERE EMPNO = #{empno}
+    </delete>
 </mapper>
 
 

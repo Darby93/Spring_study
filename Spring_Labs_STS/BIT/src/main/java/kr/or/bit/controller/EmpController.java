@@ -1,7 +1,7 @@
 package kr.or.bit.controller;
 
 
-import java.sql.Date;
+import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;

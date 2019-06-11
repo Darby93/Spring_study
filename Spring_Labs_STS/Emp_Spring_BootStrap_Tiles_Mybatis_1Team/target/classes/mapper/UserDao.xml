@@ -12,4 +12,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO EMPUSER(USERID, PASSWORD, USERNAME, EMAIL)
 		VALUES(#{userid}, #{password}, #{username}, #{email})
 	</insert>
+	
+	<select id="checkid" resultType="String">
+		select userid from empuser where userid=#{userid}
+	</select>
 </mapper>

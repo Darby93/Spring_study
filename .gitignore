@@ -18,3 +18,5 @@ Spring_Labs_STS/SpringMVC_Basic08_WebSite_Annotation_JdbcTemplate_Tiles/WebConte
 Spring_Labs_STS/SpringMVC_Basic08_WebSite_Annotation_JdbcTemplate_Tiles/WebContent/WEB-INF/lib/
 Ibasic_Mybatis_Document/
 Spring_Labs_STS/BIT/target/bit-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/
+*.zip
+*.jar

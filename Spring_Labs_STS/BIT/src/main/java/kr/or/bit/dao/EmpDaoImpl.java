@@ -1,6 +1,6 @@
 package kr.or.bit.dao;
 
-import java.text.SimpleDateFormat; 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 

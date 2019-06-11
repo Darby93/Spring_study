@@ -1,8 +1,6 @@
 package kr.or.bit.dto;
 
-import java.util.Date;
-
-import org.springframework.format.annotation.DateTimeFormat;
+import java.sql.Date;
 
 public class EmpDto {
 	private int empno;

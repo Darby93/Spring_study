@@ -3,6 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- Header -->
 <c:set var="id" value="${sessionScope.userid}" />
+
+
+
 <header class="header">
 	<div class="container">
 			<div class="col">
@@ -107,9 +110,9 @@
 				<div class="modal-body">
 				<form action="register.htm">
 					
-					USERID
+					USERID <input type="button"class="btn btn-primary" id="checkid" value="button">
 					<br><br>
-					<input class="form-control mr-sm-2" type="text" name="userid">
+					<input class="form-control mr-sm-2" type="text" name="userid" id="userid">
 							<br>
 					PASSOWRD
 					<br><br>

@@ -43,7 +43,10 @@
 	
 </div>
 
-<script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
 <script src="${pageContext.request.contextPath}/styles/bootstrap-4.1.2/popper.js"></script>
 <script src="${pageContext.request.contextPath}/styles/bootstrap-4.1.2/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/greensock/TweenMax.min.js"></script>
@@ -58,5 +61,27 @@
 <script src="${pageContext.request.contextPath}/plugins/parallax-js-master/parallax.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
 <script src="${pageContext.request.contextPath}/js/custom.js"></script>
+<script>
+$(function(){
+	$("#checkid").click(function(){
+		 $.ajax({
+			url : "checkid.htm",
+			type : "GET",
+			data : {userid : $("#userid").val()},
+			datatype : 'json',
+			success : function(data){
+				console.log(data);
+				/* if(!data){
+					alert("사용 가능한 ID 입니다");
+				} else {
+					alert("사용 불가능한 ID 입니다 ")
+				} */
+			}
+		}); 
+
+	});
+});
+	
+</script>
 </body>
 </html>
